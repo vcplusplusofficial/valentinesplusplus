@@ -98,6 +98,17 @@ body {
     left: -0.26px; 
 }
 
+.cite {
+    font-family: "Pacifico";
+    font-size: 14px; /* Changed 'font-family' to 'font-size' */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    padding-right: 10px;
+}
+
+
 .right-side::after {
     height: 0;
     width: 0;
@@ -179,10 +190,11 @@ body {
 
 .hover {
     color: white;
+    font-size: 25px; 
     text-align: center;
     font-family: "Pacifico", cursive; 
 }
 
-.text:hover:before {
-
+.text::hover span {
+    display: none;
 }
