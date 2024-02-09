@@ -104,7 +104,6 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: 10;
     padding-right: 10px;
 }
 
@@ -197,4 +196,15 @@ body {
 
 .text::hover span {
     display: none;
+}
+
+.to-from {
+    font-family: "Pacifico"; 
+    display: flex;
+    flex-direction: row;
+    color: black;
+    text-align: center;
+    line-height: 1; 
+    font-size: 25px;
+    justify-content: space-between;
 }

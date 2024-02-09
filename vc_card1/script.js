@@ -27,8 +27,32 @@ document.addEventListener("DOMContentLoaded", function () {
     hoverMessage.textContent = "Happy Valentine's Day";
   }
 
+  async function showToFrom() {
+    const message = await fetchMessage();
+    const sender = message.sender;
+    const recipient = message.recipient;
+
+    // Update "To" section with recipient
+    const toElement = document.querySelector(".to");
+    if (recipient) {
+      toElement.textContent = `To: ${recipient}`;
+    } else {
+      toElement.style.display = "none"; // Hide "To" element if there is no recipient
+    }
+
+    // Update "From" section with sender
+    const fromElement = document.querySelector(".from");
+    if (sender) {
+      fromElement.textContent = `From: ${sender}`;
+      fromElement.style.display = "block"; // Show "From" element if there is a sender
+    } else {
+      fromElement.style.display = "none"; // Hide "From" element if there is no sender
+    }
+  }
+
   // Set the default text of the card
   resetMessage();
+  showToFrom();
 
   // Add event listeners to show/hide message on hover
   valentinesDayCard.addEventListener("mouseenter", showMessage);

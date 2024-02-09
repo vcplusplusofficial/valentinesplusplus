@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "g-sheets-api": "^2.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "googleapis": "^133.0.0"
+  }
+}
