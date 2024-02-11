@@ -11,10 +11,19 @@ body {
 }
 
 
-.text, .title{
+.text, .title, #submit {
     font-family: "Playpen Sans", cursive;    
     fill: #800f2f;
 }
+
+#submit{
+  margin-top: 4px;
+  border: 2px solid #d62828;
+  background-color: #fff; 
+  border-radius: 5px; 
+  outline: none;
+}
+
 
 .title {
     font-size: 130px;
@@ -185,3 +194,4 @@ body {
       opacity: 0.5;
     }
   }
+

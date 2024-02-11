@@ -248,6 +248,18 @@ body {
     left: -100px;
   }
 
+  .to-from {
+    font-family: "Pacifico"; 
+    display: flex;
+    flex-direction: row;
+    color: black;
+    text-align: center;
+    line-height: 1; 
+    font-size: 25px;
+    justify-content: space-between;
+}
+
+
   .to {
     top: 20px ;
   }
