@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    <script src="client.js" type="module"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,11 +29,14 @@
         </div>
         <div class="enter">
             <div class="text">If you're here you must have received a gift from a special someone...</div>
-            <form class="enter">
-                <input type="text" placeholder="Enter your code here!!" class="custom-input"> 
+            <form id="codeForm" class="enter" action="http://localhost:8000/search" method="GET">   
+                <input name="code" type="text" placeholder="Enter your code here!!" class="custom-input" id="inputCode"/>
+                <button type="submit" id="submit">Submit!</button>
+
             </form>            
         </div>
     </div>
-
+   
+    
 </body>
 </html>
