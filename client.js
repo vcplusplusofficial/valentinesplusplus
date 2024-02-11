@@ -9,7 +9,10 @@ const handleSubmit = async (e) => {
         data.get("code")
       )}`,
       {
-        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
     );
 
