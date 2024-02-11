@@ -19,8 +19,7 @@ app.get("/", (req, res) => {
 
 app.get("/search", async (req, res) => {
   try {
-    const inputValue = req.query.inputValue; // Retrieve input value from query parameters
-    console.log("Input Value:", inputValue);
+    const inputValue = req.query.code;
 
     const auth = new google.auth.GoogleAuth({
       keyFile: credentialsFilePath,
