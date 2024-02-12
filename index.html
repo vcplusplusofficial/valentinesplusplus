@@ -45,7 +45,7 @@
         try {
             const inputValue = document.getElementById("inputCode").value;
             const response = await fetch(
-            `http://localhost:8000/vc_card/${encodeURIComponent(
+            `https://valentinesplusplus-eb4adca6efcd.herokuapp.com/vc_card/${encodeURIComponent(
                 inputValue
             )}`,
             {
