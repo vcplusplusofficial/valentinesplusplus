@@ -65,6 +65,19 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/vc_card1", (req, res) => {
+  res.sendFile(path.join(__dirname, "vc_card1", "index.html"));
+});
+app.get("/vc_card2", (req, res) => {
+  res.sendFile(path.join(__dirname, "vc_card2", "index.html"));
+});
+app.get("/vc_card3", (req, res) => {
+  res.sendFile(path.join(__dirname, "vc_card3", "index.html"));
+});
+app.get("/vc_card4", (req, res) => {
+  res.sendFile(path.join(__dirname, "vc_card4", "index.html"));
+});
+
 // app.get("/vc_card/", async (req, res) => {
 //   try {
 //     const inputValue = req.query.code;
@@ -102,38 +115,14 @@ app.get("/", (req, res) => {
 //   }
 // });
 
-app.get("/vc_card/", async (req, res) => {
+app.get("/vc_card/:code", async (req, res) => {
   try {
-    const inputValue = req.query.code;
+    
+    const inputValue = req.params.code;
+    // console.log(req.code)
     const getRow = await getData(inputValue); // Make sure to await getData
-    const randomNumber = Math.floor(Math.random() * 4) + 1;
-    let filePath = "";
 
-    switch (randomNumber) {
-      case 1:
-        filePath = path.join(__dirname, "vc_card1", "index.html");
-        break;
-      case 2:
-        filePath = path.join(__dirname, "vc_card2", "index.html");
-        break;
-      case 3:
-        filePath = path.join(__dirname, "vc_card3", "index.html");
-        break;
-      default:
-        filePath = path.join(__dirname, "vc_card4", "index.html");
-    }
-
-    // Read the HTML file contents
-    const htmlContent = fs.readFileSync(filePath, "utf-8");
-
-    // Modify the HTML content to embed the JSON object
-    const modifiedHtmlContent = htmlContent.replace(
-      "<script id='rowData'></script>",
-      `<script id='rowData'>const rowData = ${JSON.stringify(getRow)};</script>`
-    );
-
-    // Send the modified HTML content
-    res.send(modifiedHtmlContent);
+    res.send(getRow)
   } catch (error) {
     console.error("Error retrieving data:", error);
     res.status(500).json({

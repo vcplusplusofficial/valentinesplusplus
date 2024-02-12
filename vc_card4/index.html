@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
   <head>
     <link rel="stylesheet" href="/styles4.css">
-    <script src="script.js"></script>
+    
   </head>
   <body>
     <img class="backwards" src="/assets/back.png" alt="Back arrow"/>
     <p class="cite">base designed by @lenadesign5043</p>
-    <div class="valentines-day-card">
+    <div class="valentines-day-card">   
   <input id="open" type="checkbox">
   <label class="open" for="open"></label>
 <div class="card-front">
@@ -21,5 +22,22 @@
     <div class="smile"></div>
     <div class="eyes"></div>
 </div>
+<div class="to-from">
+  <p class="to">To:</p>
+  <p class="from">From:</p>
 </div>
+</div>
+<script>
+  const backButton = document.querySelector(".backwards");
+  backButton.addEventListener("click", function () {
+    // Navigate back to the homepage (index.html)
+    window.location.href = "/";
+  });
+  const data = JSON.parse(localStorage.getItem('pageData'));
+    // Use your data here
+    console.log(data);
+    // Optionally clear it after use
+    localStorage.removeItem('pageData');
+</script>
+<body/>
   </html>
