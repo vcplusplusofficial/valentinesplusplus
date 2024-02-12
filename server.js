@@ -115,7 +115,7 @@ app.get("/vc_card4", (req, res) => {
 //   }
 // });
 
-app.get("/vc_card/:code", async (req) => {
+app.get("/vc_card/:code", async (req, res) => {
   try {
     
     const inputValue = req.params.code;
