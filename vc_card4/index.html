@@ -8,6 +8,7 @@
   <body>
     <img class="backwards" src="/assets/back.png" alt="Back arrow"/>
     <p class="cite">base designed by @lenadesign5043</p>
+    <p class="message">Replace</p>
     <div class="valentines-day-card">   
   <input id="open" type="checkbox">
   <label class="open" for="open"></label>
@@ -28,16 +29,44 @@
 </div>
 </div>
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve data from localStorage
+    const data = JSON.parse(localStorage.getItem('pageData'));
+    console.log(data); // Check if data is retrieved correctly
+    
+    // Update the To and From elements
+    const toElement = document.querySelector('.to');
+    const fromElement = document.querySelector('.from');
+    const messageElement = document.querySelector('.message');
+
+   
+    if (data) {
+      // If data exists, update the elements
+      if (data[2].trim() !== "") {
+          toElement.textContent = `To: ${data[2]}`;
+          toElement.style.display = "block"; // Show the element
+      }
+      if (data[1].trim() !== "") {
+          fromElement.textContent = `From: ${data[1]}`;
+          fromElement.style.display = "block"; // Show the element
+      }
+      if (data[4].trim() !== "") {
+          messageElement.textContent = data[4];
+          messageElement.style.display = "block"; // Show the element
+      }
+  } else {
+      // If data is null or undefined, log an error
+      console.error("No data found in localStorage");
+  }
+
+  });
+
+  // Add event listener for the back button
   const backButton = document.querySelector(".backwards");
   backButton.addEventListener("click", function () {
     // Navigate back to the homepage (index.html)
     window.location.href = "/";
   });
-  const data = JSON.parse(localStorage.getItem('pageData'));
-    // Use your data here
-    console.log(data);
-    // Optionally clear it after use
-    localStorage.removeItem('pageData');
 </script>
 <body/>
   </html>

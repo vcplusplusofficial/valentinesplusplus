@@ -44,7 +44,6 @@
 
         try {
             const inputValue = document.getElementById("inputCode").value;
-            const randomNumber = Math.floor(Math.random() * 4) + 1;
             const response = await fetch(
             `http://localhost:8000/vc_card/${encodeURIComponent(
                 inputValue
@@ -58,12 +57,12 @@
             );
             // console.log("response is ", response)
             if (response.ok) {
-            const data = await response.json();
-            console.log(data)
-            localStorage.setItem('pageData', JSON.stringify(data));
-            //change "4" to randomNumber in the next line for it to pick a random page
-            window.location.href = `/vc_card${4}`
-        
+                const randomNumber = Math.floor(Math.random() * 4) + 1;
+                const data = await response.json();
+                console.log(data)
+                localStorage.setItem('pageData', JSON.stringify(data));
+                window.location.href = `/vc_card${randomNumber}`
+            
             } else {
             console.error("Server returned an error:", response.statusText);
             }

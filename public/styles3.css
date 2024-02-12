@@ -10,6 +10,13 @@ body {
     overflow: hidden;
   }
   
+  .to,
+  .from,
+  .message {
+    display: none;
+  }
+  
+
   .chocolate-box {
     position: relative;
     height: 300px;
@@ -304,6 +311,29 @@ body {
 
 }
 
+.to, .from{
+  z-index: 10;  
+  width: 300px;
+  font-size: 18px; 
+  font-family: "Pacifico";
+  position: absolute;
+  color: #000;
+  text-align: start;
+  line-height:25px;
+  left: -100px;
+}
+
+.to {
+  bottom:-50px;
+  left:65px;
+
+}
+
+.from {
+  bottom:-10px;
+  left: 65px;
+}
+
 .to-from {
   font-family: "Pacifico"; 
   display: flex;
@@ -313,4 +343,13 @@ body {
   line-height: 1; 
   font-size: 25px;
   justify-content: space-between;
+}
+
+.message {
+  bottom: 20px;
+  font-family: "Pacifico";
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

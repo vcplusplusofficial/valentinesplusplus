@@ -9,6 +9,13 @@ body {
     overflow: hidden; 
   }
   
+  .to,
+  .from,
+  .message {
+    display: none;
+  }
+  
+
   .container {
     position: relative;
   }
@@ -238,13 +245,25 @@ body {
     }
   }
 
+
+.message {
+  bottom: 20px;
+  font-family: "Pacifico";
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
   .to, .from{
     z-index: 10;  
+    width: 300px;
     font-size: 18px; 
-    font-family: 'Brush Script MT', ;
+    font-family: "Pacifico";
     position: absolute;
     color: #003049;
-    text-align: center;
+    text-align: start;
     line-height:25px;
     left: -100px;
   }

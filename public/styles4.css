@@ -12,6 +12,13 @@ body {
   overflow: hidden; 
 }
 
+
+.to,
+.from,
+.message {
+  display: none;
+}
+
 input#open {
   display: none;
 }
@@ -125,6 +132,14 @@ input#open {
   top:30px;
   width:300px;
   text-align: center;
+}
+
+.message {
+  top: 20px;
+  font-size: 19px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .text-one:before, .text-one:after {
@@ -254,10 +269,24 @@ input#open {
 .to-from {
   font-family: "Pacifico"; 
   display: flex;
+  color: #000;
   flex-direction: row;
   color: black;
   text-align: center;
   line-height: 1; 
   font-size: 25px;
   justify-content: space-between;
+}
+
+.to {
+  position:absolute;
+  top:-60px;
+  left:50;
+
+}
+
+.from {
+  position: absolute;
+  bottom:-85px;
+  right: 40px;
 }
