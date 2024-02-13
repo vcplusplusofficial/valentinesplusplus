@@ -9,14 +9,21 @@ body {
     height: 100vh;
     background-color: #FAE1DD;
     overflow: hidden; 
+    margin-top: 25px;
   }
   
   .to,
-  .from,
-  .message {
+  .from
+   {
     display: none;
+    margin: 0;
+    padding: 5px 0;
   }
   
+  .message {
+    display: none;
+    margin-top: 28px;
+  }
 
   .container {
     position: relative;
@@ -289,6 +296,7 @@ body {
   font-size: 24px;
   justify-content: start;
   margin-bottom: 100px;
+  gap:10px;
 }
 
 .backwards {

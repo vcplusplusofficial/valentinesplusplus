@@ -5,6 +5,7 @@
 
 body {
   background-color: #FFDCDC; 
+  overflow-x: hidden;
 }
 
 body::before {
@@ -65,8 +66,9 @@ body::before {
   font-style: italic;
   font-size: 22px;
   color: #5E081E; 
-  top: calc(25% + 20px) ;
-  left: calc(60% + 25px ); /* Position 10px below the card */
+  top: calc(30% + 20px); 
+  left: calc(60% + 25px);
+  z-index: 10;
 }
 
 .title {
@@ -245,7 +247,7 @@ body::before {
   
   @keyframes heart {
     0%{
-      transform: translateY(300px) rotate(-45deg) scale(0.3);
+      transform: translateY(250px) rotate(-45deg) scale(0.3);
       opacity: 1;
     }
     100%{
