@@ -16,26 +16,29 @@
             <div class="five"></div>
             <div class="six"></div>
           </div>
-        <!-- <img src="./assets/logo.PNG" alt="Logo" class="logo"/> -->
+        <img src="./assets/logo.PNG" alt="Logo" class="logo"/>
+        <div class="oval">    </div>
         <div class="title">
-            <svg width="1200" height="380">
-                <path id="curve" d="M 20 480 C 0 480, 520 0, 1200 480"></path>  
-                <text class="title" text-anchor="middle">
-                    <textPath class="text__path" href="#curve" startOffset="50%">
-                        Valentine++
-                    </textPath>
-                </text>
-            </svg>
+            <p class="text__path">Valentine's++</p>
         </div>
+
+        <p class="pitch">brought to you by VC++</p>
         <div class="enter">
             <div class="text">If you're here you must have received a gift from a special someone...</div>
-            <form id="codeForm" class="enter" action="https://valentinesplusplus-eb4adca6efcd.herokuapp.com/vc_card/" method="GET">
-                <input name="code" type="text" placeholder="Enter your code here!!" class="custom-input" id="inputCode"/>
-                <button type="submit" id="submit">Submit!</button>
-
+            <form id="codeForm" class="submitting" action="https://valentinesplusplus-eb4adca6efcd.herokuapp.com/vc_card/" method="GET">
+                <input name="code" type="text" placeholder="Enter your special code here" class="custom-input" id="inputCode"/>
+                <button type="submit" id="submit">
+                    <svg width="65" height="65" viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M66 121C96.3757 121 121 96.3757 121 66C121 35.6243 96.3757 11 66 11C35.6243 11 11 35.6243 11 66C11 96.3757 35.6243 121 66 121Z" fill="#5E081E"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.875 66C6.875 33.3461 33.3461 6.875 66 6.875C98.6538 6.875 125.125 33.3461 125.125 66C125.125 98.6538 98.6538 125.125 66 125.125C33.3461 125.125 6.875 98.6538 6.875 66ZM66 15.125C37.9025 15.125 15.125 37.9025 15.125 66C15.125 94.0975 37.9025 116.875 66 116.875C94.0975 116.875 116.875 94.0975 116.875 66C116.875 37.9025 94.0975 15.125 66 15.125Z" fill="#5E081E"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M35.7272 67.375C35.7272 65.0968 37.574 63.25 39.8522 63.25H89.3522C91.6303 63.25 93.4772 65.0968 93.4772 67.375C93.4772 69.6532 91.6303 71.5 89.3522 71.5H39.8522C37.574 71.5 35.7272 69.6532 35.7272 67.375Z" fill="#FFFBFF"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M61.6854 39.7082C63.2963 38.0973 65.9081 38.0973 67.519 39.7082L92.269 64.4582C93.8799 66.0691 93.8799 68.6809 92.269 70.2918L67.519 95.0418C65.9081 96.6527 63.2963 96.6527 61.6854 95.0418C60.0744 93.4309 60.0744 90.8191 61.6854 89.2082L83.5185 67.375L61.6854 45.5418C60.0744 43.9309 60.0744 41.3191 61.6854 39.7082Z" fill="#FFFBFF"/>
+                    </svg>   
+                </button>
             </form>            
         </div>
     </div>
+    <div class="paperOverlay"></div>
     <script>
         const form = document.querySelector("form");
 

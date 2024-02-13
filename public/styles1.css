@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Pacifico&family=Playpen+Sans:wght@100..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Homemade+Apple&family=Pacifico&family=Playpen+Sans:wght@100..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ff758f;
+    background-color: #F493A5;
     overflow: hidden; 
 }
 
@@ -24,8 +26,8 @@ body {
     overflow: hidden;
     border: 10px solid white;
     border-radius: 10px;
-    box-shadow: 0 0 100px rgba(0, 0, 0, .4);
-    margin-bottom: 150px;
+    box-shadow: 0 0 100px rgba(255, 255, 255, .1);
+    margin-bottom: 200px;
 }
 
 .valentines-day-card::before{
@@ -107,24 +109,30 @@ body {
     left: -0.26px; 
 }
 
-.cite, .message{
-    font-family: "Pacifico";
+.cite, .vc, .message{
+
     position: absolute;
 }
 
-.cite {
-    bottom: 0;
-    font-size: 14px; /* Changed 'font-family' to 'font-size' */
+.cite, .vc {
+    font-family: "Crimson Apple";
+    font-style: italic;
+    line-height: 16px;
+    color: #F5F5F5;
+    text-align: right;
+    font-size: 16px; /* Changed 'font-family' to 'font-size' */
     right: 0;
     padding-right: 10px;
 }
 
-.message {
+.cite{
     bottom: 20px;
-    font-size: 20px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+
+}
+
+.vc {
+    bottom: 0;
+
 }
 
 
@@ -230,13 +238,37 @@ body {
 }
 
 .to-from {
-    font-family: "Pacifico"; 
+    font-family: "Homemade Apple";
     display: flex;
     flex-direction: column;
-    color: black;
+    color: #F5EEF2;
     text-align: center;
     line-height: 1; 
     font-size: 25px;
     justify-content: space-between;
 }
 
+.message::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    padding: 5px 28px;
+    border-radius: 8px;
+    width: calc(100% + 20px); 
+    height: calc(100% + 15px); 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Ensure it's behind the text */
+  }
+
+  .message {
+    font-family: "Crimson Apple";
+    font-style: italic;
+    color: #731B2F;
+    font-size: 20px;
+    position: absolute;
+    top: calc(75% ); /* Position 10px below the card */
+    left: 50%;
+    transform: translateX(-50%);
+}

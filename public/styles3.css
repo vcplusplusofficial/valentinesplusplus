@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap'); 
-
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Pacifico&family=Playpen+Sans:wght@100..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Homemade+Apple&family=Pacifico&family=Playpen+Sans:wght@100..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f5b8b5;
+    background-color: #EAD0B9;
     overflow: hidden;
   }
   
@@ -18,10 +19,12 @@ body {
   
 
   .chocolate-box {
+    margin-bottom: 200px;
     position: relative;
     height: 300px;
     width: 300px;
     cursor: pointer;
+    margin-bottom: 150px;
   }
 
   .chocolate-box:before, .chocolate-box:after {
@@ -264,7 +267,7 @@ body {
     position: absolute;
     width: 100%;
     display: none;
-    color: #ffead2;
+    color: #5E081E;
     font-family: "Brush Script MT", cursive;
     font-size: 25px;
     transition: .1;
@@ -290,14 +293,26 @@ body {
     top: 100px;
   }
 
-  .cite {
-    font-family: "Pacifico";
-    font-size: 14px; /* Changed 'font-family' to 'font-size' */
+  .cite, .vc {
     position: absolute;
-    bottom: 0;
+    font-family: "Crimson Apple";
+    font-style: italic;
+    line-height: 16px;
+    color: #C13824;
+    text-align: right;
+    font-size: 16px; /* Changed 'font-family' to 'font-size' */
     right: 0;
-    z-index: 10;
     padding-right: 10px;
+}
+
+.cite{
+    bottom: 20px;
+
+}
+
+.vc {
+    bottom: 0;
+
 }
 
 .backwards {
@@ -311,45 +326,49 @@ body {
 
 }
 
-.to, .from{
-  z-index: 10;  
-  width: 300px;
-  font-size: 18px; 
-  font-family: "Pacifico";
-  position: absolute;
-  color: #000;
-  text-align: start;
-  line-height:25px;
-  left: -100px;
-}
 
-.to {
-  bottom:-50px;
-  left:65px;
-
-}
-
-.from {
-  bottom:-10px;
-  left: 65px;
-}
 
 .to-from {
-  font-family: "Pacifico"; 
+  font-family: "Homemade Apple";
   display: flex;
-  flex-direction: row;
-  color: black;
+  flex-direction: column;
+  color: #362516;
   text-align: center;
   line-height: 1; 
   font-size: 25px;
   justify-content: space-between;
+  margin-bottom: 80px;
 }
 
 .message {
-  bottom: 20px;
-  font-family: "Pacifico";
+  color: #270B02;
+  font-family: "Crimson Apple";
   font-size: 20px;
+  font-style: italic;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  top: calc(75% - 30px); /* Position 10px below the card */
+
+}
+
+.message::before {
+  content: "";
+  position: absolute;
+  background-color: #FBE8D7;
+  padding: 5px 28px;
+  border-radius: 8px;
+  width: calc(100% + 20px); 
+  height: calc(100% + 15px); 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Ensure it's behind the text */
+}
+
+.layer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
 }

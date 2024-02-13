@@ -7,11 +7,13 @@
     <div class="happy-valentines">
         <img class="backwards" src="/assets/back.png" alt="Back arrow"/>
         <p class="cite">base designed by @lenadesign5043</p>
-        <p class="message">Replace</p>
+        <p class="vc">brought to you by VC++, Vassar Computer Science Club, Spring 2024</p>
+
         <div class="to-from">
             <p class="to">To:</p>
             <p class="from">From:</p>
         </div>
+        <p class="message">Replace</p>
         <div class="valentines-day-card">
         <div class="clouds"></div>
             <div class="hearts">
@@ -61,7 +63,7 @@
                 fromElement.style.display = "block"; // Show the element
             }
             if (data[4].trim() !== "") {
-                messageElement.textContent = data[4];
+                messageElement.textContent = `"${data[4]}"`;
                 messageElement.style.display = "block"; // Show the element
             }
         } else {

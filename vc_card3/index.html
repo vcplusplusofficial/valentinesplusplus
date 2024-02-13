@@ -9,15 +9,18 @@
     <img class="backwards" src="/assets/back.png" alt="Back arrow"/>
     <p class="message">Replace</p>
     <p class="cite">base designed by @lenadesign5043</p>
-    <div class="chocolate-box">
-      <div class="to-from">
-        <p class="from">From: 
+    <p class="vc">brought to you by VC++, Vassar Computer Science Club, Spring 2024</p>
+    <div class="layer">
+    <div class="to-from">
+      <p class="from">From: 
 
-        </p>
-        <p class="to">
-          To:
-        </p>
-      </div>
+      </p>
+      <p class="to">
+        To:
+      </p>
+    </div>
+    <div class="chocolate-box">
+
         <div class="chocs">
           <div id="top-left" class="top-left"></div>
           <div id="top-right" class="top-right"></div>
@@ -31,6 +34,7 @@
         <div id="truffle">Chocolate truffle</div>
         <div id="truffle2">Chocolate truffle</div>
       </div>
+    </div>
 
       <script>
 
@@ -102,8 +106,8 @@
                 fromElement.style.display = "block"; // Show the element
             }
             if (data[4].trim() !== "") {
-                messageElement.textContent = data[4];
-                messageElement.style.display = "block"; // Show the element
+              messageElement.textContent = `"${data[4]}"`;
+              messageElement.style.display = "block"; // Show the element
             }
         } else {
             // If data is null or undefined, log an error

@@ -1,77 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playpen+Sans:wght@100..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Homemade+Apple&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playpen+Sans:wght@100..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 body {
-    background-color: #FFDCDC;
-    
+  background-color: #FFDCDC; 
 }
 
-#curve{
-    fill: transparent
+body::before {
+  content: '02.14.2024 02.14.2024 02.14.2024 \n      02.14.2024 02.14.2024 02.14.2024 \n      02.14.2024 02.14.2024 02.14.2024 \n        02.14.2024 02.14.2024 02.14.2024 \n  02.14.2024 02.14.2024 02.14.2024';
+  position: fixed;
+  top: -60%; /* Adjust as needed */
+  left: -30%; /* Adjust as needed */
+  right: -50%;
+  bottom: -50%;
+  z-index: -3;
+  font-size: 220px;
+  color: #F4B7B6;
+  opacity: 40%;
+  text-align: center;
+  line-height: 1;
+  font-family: "Homemade Apple";
+}
+
+.oval {
+  width: 1200px;
+  height: 250px;
+  z-index: -5;
+  position: absolute;
+  top: calc(6%);
+  left: calc(10%);
+  background-image: radial-gradient(#FFFFFF 0%, #FFDCDC 70%);
 }
 
 
-.text, .title, #submit {
-    font-family: "Playpen Sans", cursive;    
-    fill: #800f2f;
+.paperOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 15%;
+  mix-blend-mode: multiply;
+  background-repeat: repeat;
+  pointer-events: none;
+  background-image: url("./assets/grain.png");
 }
 
-#submit{
-  margin-top: 4px;
-  border: 2px solid #d62828;
-  background-color: #fff; 
-  border-radius: 5px; 
+#submit {
+  margin-left: 10px;
+  width: 65px;
+  height: 65px;
+  padding: 0;
+  border: none; 
+  background: none; 
+  cursor: pointer;
   outline: none;
 }
 
 
-.title {
-    font-size: 130px;
+.pitch {
+  position: absolute;
+  font-family: "Crimson Apple";    
+  font-style: italic;
+  font-size: 22px;
+  color: #5E081E; 
+  top: calc(25% + 20px) ;
+  left: calc(60% + 25px ); /* Position 10px below the card */
+}
 
+.title {
+  font-size: 100px;
+  color: #5E081E;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-family: "Montserrat";
 }
 
 .text {
-    font-size: 30px;
+  font-size: 30px;
+  font-family: "Montserrat";
+  color: #5E081E;
 }
 
 .happy-valentines {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .enter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitting {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
 }
 
 .logo {
-    position: absolute;
-    right: 30px;
-    top:20px;  
-    width: 250px; 
-    height: auto; 
-    background-color: #FFDCDC;
-    transform: rotate(25deg); 
-    z-index: 3;
+  position: absolute;
+  left: 0;
+  top:-20px;  
+  width: 125px; 
+  height: auto; 
+  background-color: #FFDCDC;
+  z-index: -4;
 }
 
 .custom-input {
-    margin-top: 60px;
-    border: 2px solid #d62828;
-    background-color: #fff; 
-    font-family: "Playpen Sans", cursive;    
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px; 
-    outline: none; 
+  margin-top: 60px;
+  z-index: 5;
+  border: 1px solid #5E081E;
+  background-color: #fff; 
+  font-family: "Crimson Apple";    
+  width: 400px;
+  font-size: 30px;
+  font-style: italic;
+  color: #C4909D;
+  padding: 15px 20px;
+  border-radius: 50px; 
+  outline: none; 
 }
 
 .custom-input::placeholder {
-    color: #000; 
+    color: #C4909D; 
     font-style: italic; 
 }
 
