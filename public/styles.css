@@ -6,15 +6,22 @@
 body {
   background-color: #FFDCDC; 
   overflow-x: hidden;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  padding-top: 10px;
 }
 
 body::before {
   content: '02.14.2024 02.14.2024 02.14.2024 \n      02.14.2024 02.14.2024 02.14.2024 \n      02.14.2024 02.14.2024 02.14.2024 \n        02.14.2024 02.14.2024 02.14.2024 \n  02.14.2024 02.14.2024 02.14.2024';
   position: fixed;
-  top: -60%; /* Adjust as needed */
-  left: -30%; /* Adjust as needed */
+  /* top: -60%;
+  left: -30%; 
   right: -50%;
-  bottom: -50%;
+  bottom: -50%; */
+  width: 100%;
+  height: 100%;
   z-index: -3;
   font-size: 220px;
   color: #F4B7B6;
@@ -36,11 +43,13 @@ body::before {
 
 
 .paperOverlay {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
+  width: 100vh;
+  height: 100vh;
   opacity: 15%;
   mix-blend-mode: multiply;
   background-repeat: repeat;
@@ -66,8 +75,8 @@ body::before {
   font-style: italic;
   font-size: 22px;
   color: #5E081E; 
-  top: calc(30% + 20px); 
-  left: calc(60% + 25px);
+  /* top: calc(30% + 20px); 
+  left: calc(60% + 25px); */
   z-index: 10;
 }
 
@@ -88,6 +97,8 @@ body::before {
 .happy-valentines {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100vw;
   justify-content: center;
   align-items: center;
 }

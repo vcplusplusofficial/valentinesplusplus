@@ -22,7 +22,7 @@ def fetchdata():
     spreadsheet = client.open_by_key(spreadsheet_id)
 
     worksheet = spreadsheet.get_worksheet(
-        1
+        2
     )  # Assuming the data is in the first worksheet (index 0)
     # Get the values from the specified column (column C starting from row 2)
  
@@ -98,6 +98,7 @@ def sendmail(recipient_email, recipient_name, receiver_name="", sender=True, cod
 
 if __name__ == "__main__":
     senders, recipients, recipient_emails, sender_emails, codes = fetchdata()
+    print(len(senders))
     for i in range(len(senders)):
         sender = senders[i]
         recipient = recipients[i]

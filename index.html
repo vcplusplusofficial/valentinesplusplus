@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
@@ -17,7 +17,7 @@
             <div class="six"></div>
           </div>
         <img src="./assets/logo.PNG" alt="Logo" class="logo"/>
-        <div class="oval">    </div>
+        <!-- <div class="oval">    </div> -->
         <div class="title">
             <p class="text__path">Valentine's++</p>
         </div>
@@ -38,7 +38,7 @@
             </form>            
         </div>
     </div>
-    <div class="paperOverlay"></div>
+    <!-- <div class="paperOverlay"></div> -->
     <script>
         const form = document.querySelector("form");
 
@@ -64,7 +64,7 @@
                 const data = await response.json();
                 console.log(data)
                 localStorage.setItem('pageData', JSON.stringify(data));
-                window.location.href = `/vc_card${randomNumber}`
+                window.location.href = `/vc_card${4}`
             
             } else {
             console.error("Server returned an error:", response.statusText);
