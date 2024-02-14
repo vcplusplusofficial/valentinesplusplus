@@ -45,34 +45,34 @@ def sendmail(recipient_email, recipient_name, sender=True, code=None):
 
     if sender:
         body = f"""Dear {recipient_name},
-        We hope this email finds you with a heart full of anticipation! Your Valentine's++ gift package has been lovingly prepared and sent to your special someone. 💖
+We hope this email finds you with a heart full of anticipation! Your Valentine's++ gift package has been lovingly prepared and sent to your special someone. 💖
 
-        We wanted to let you know that everything is set for a day full of smiles, sweetness, and surprises. Please gently remind your loved one to visit VC++ booth in College Center, Main Building between 11AM and 5PM to pick up their gift package. It's a beautiful gesture that's sure to make their day even more memorable. 🎁✨
+We wanted to let you know that everything is set for a day full of smiles, sweetness, and surprises. Please gently remind your loved one to visit VC++ booth in College Center, Main Building between 11AM and 5PM to pick up their gift package. It's a beautiful gesture that's sure to make their day even more memorable. 🎁✨
 
-        Thank you for choosing to spread love with Valentine's++. Your thoughtfulness is what makes this event so special. (＾-＾)v
+Thank you for choosing to spread love with Valentine's++. Your thoughtfulness is what makes this event so special. (＾-＾)v
 
-        Warmly,
+Warmly,
 
-        The VC++ Team
+The VC++ Team
         """
     else:
         body = f"""Dear {recipient_name},
 
-                Exciting news! Someone special has sent you a Valentine's++ gift package, filled with love and thoughtfulness just for you. 💕
+Exciting news! Someone special has sent you a Valentine's++ gift package, filled with love and thoughtfulness just for you. 💕
 
-                To discover what awaits, please visit VC++’s booth in College Center, Main Building between 11AM and 5PM to pick up your surprise package. But that's not all – a unique code has been created for you to access a heartfelt message and your very own Valentine's card online. Simply visit {WEBSITE_URL} and enter the code {code} to unveil the love sent your way. 💻❤️
+To discover what awaits, please visit VC++’s booth in College Center, Main Building between 11AM and 5PM to pick up your surprise package. But that's not all – a unique code has been created for you to access a heartfelt message and your very own Valentine's card online. Simply visit {WEBSITE_URL} and enter the code {code} to unveil the love sent your way. 💻❤️
 
-                And there's a cherry on top! Don't miss out on our special Valentine's Theme Boba Tea – Strawberry Green Tea infused with Strawberry Popping Bubble and Fruit Jelly. It's the perfect treat to make your day even sweeter. 🍓🍵😊
+And there's a cherry on top! Don't miss out on our special Valentine's Theme Boba Tea – Strawberry Green Tea infused with Strawberry Popping Bubble and Fruit Jelly. It's the perfect treat to make your day even sweeter. 🍓🍵😊
 
-                We can't wait to see you and share in this moment of joy and sweetness. Remember, love is in the air, and it's all for you!
+We can't wait to see you and share in this moment of joy and sweetness. Remember, love is in the air, and it's all for you!
 
-                With all our hearts,
+With all our hearts,
 
-                The VC++ Team
+The VC++ Team
 
-                P.S. Don't forget to bring your smile! (＾▽＾)
+P.S. Don't forget to bring your smile! (＾▽＾)
 
-                """
+"""
 
     message = MIMEMultipart()
     message["From"] = sender_email
