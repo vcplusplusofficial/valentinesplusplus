@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 require("dotenv").config();
 
@@ -34,9 +34,19 @@ async function connectToDatabase() {
 app.get("/api/documents", async (req, res) => {
   try {
     const collection = await connectToDatabase();
-    const query = req.query; // Use query parameters for filtering
+    let query = { ...req.query }; // Clone query parameters
+
+    // Convert `_id` to ObjectId if it exists in the query
+    if (query._id) {
+      try {
+        query._id = new ObjectId(query._id);
+      } catch (error) {
+        return res.status(400).json({ error: "Invalid _id format" });
+      }
+    }
+
     const documents = await collection.find(query).toArray();
-    res.json(documents); // Send the found documents as a JSON response
+    res.json(documents);
   } catch (error) {
     console.error("Error fetching documents:", error);
     res.status(500).json({ error: "Internal server error" });

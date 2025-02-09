@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { insertDocument, fetchDocuments } from './APIService';
 
-const FetchComponent = () => {
+const DatabaseComponent = () => {
   const [documents, setDocuments] = useState([]);
   const [newDoc, setNewDoc] = useState({ senderName: '', receiverName: "", link: '', cardNumber: '', hobbies: '' });
 
@@ -23,15 +23,21 @@ const FetchComponent = () => {
   // Insert a new document
   const handleInsert = async () => {
     try {
+      // Check if any field is empty or missing
+      if (Object.values(newDoc).some(value => !value.trim())) {
+        alert('All fields must be filled before submitting.');
+        return; // Stop execution if any field is empty
+      }
+  
       const hobbiesArray = newDoc.hobbies.split(',').map(hobby => hobby.trim()); // Convert hobbies to array
       const response = await insertDocument({ ...newDoc, hobbies: hobbiesArray });
+  
       console.log(newDoc);
       // alert(`Document inserted with ID: ${response.documentId}`);
     } catch (error) {
       alert('Failed to insert document');
     }
   };
-
   return (
     <div>
       <h1>MongoDB React App</h1>
@@ -89,4 +95,4 @@ const FetchComponent = () => {
   );
 };
 
-export default FetchComponent;
+export default DatabaseComponent;

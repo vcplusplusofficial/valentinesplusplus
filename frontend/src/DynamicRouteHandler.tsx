@@ -17,7 +17,7 @@ const DynamicRouteHandler = () => {
     const fetchEntry = async () => {
       try {
         // const response = await fetchDocuments({ "link": path }); // Example query
-        const response = await fetchDocuments({ link: path }); // Example query
+        const response = await fetchDocuments({ "_id": path }); // Example query
         
         console.log(response);
         if (response) {

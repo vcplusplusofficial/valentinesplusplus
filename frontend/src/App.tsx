@@ -4,8 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import FetchComponent from "./FetchComponent";
-import Card1 from "./cards/card1/Card1";
+import DatabaseComponent from "./DatabaseComponent";
 import DynamicRouteHandler from "./DynamicRouteHandler";
 
 export default function App() {
@@ -28,10 +27,7 @@ export default function App() {
 
         {/* Use <Routes> instead of <Switch> */}
         <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="/users" element={<Users />} />
           <Route path="/" element={<Home />} />
-
           <Route path="*" element={<DynamicRouteHandler />} />
         </Routes>
 
@@ -51,24 +47,9 @@ function Home() {
           <li>
             <Link to="/steven2">steven2</Link>
           </li>
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
         </ul>
       </nav>
-    <FetchComponent /> 
+    <DatabaseComponent /> 
   </div>
   );
-}
-
-function About() {
-  return (
-    <>
-      {/* <Card1 /> */}
-    </>
-  );
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
