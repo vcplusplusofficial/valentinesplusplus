@@ -41,12 +41,12 @@ function Home() {
   <div> 
      <nav>
         <ul>
-          <li>
+          {/* <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/steven2">steven2</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     <DatabaseComponent /> 

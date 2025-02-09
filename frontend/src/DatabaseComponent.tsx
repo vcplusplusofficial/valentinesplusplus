@@ -3,41 +3,53 @@ import { insertDocument, fetchDocuments } from './APIService';
 
 const DatabaseComponent = () => {
   const [documents, setDocuments] = useState([]);
-  const [newDoc, setNewDoc] = useState({ senderName: '', receiverName: "", link: '', cardNumber: '', hobbies: '' });
+  const [newDoc, setNewDoc] = useState({ 
+    senderName: '', 
+    receiverName: '', 
+    note: '', 
+    cardNumber: '', 
+    receiverEmail: '' 
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   // Fetch documents on component mount
   useEffect(() => {
-    const loadDocuments = async () => {
-      try {
-        const docs = await fetchDocuments({}); // All documents
-        // const docs = await fetchDocuments({ name: 'Alice' }); // Example query
-        setDocuments(docs);
-      } catch (error) {
-        console.error('Failed to load documents:', error);
-      }
-    };
-
     loadDocuments();
   }, []);
+
+  const loadDocuments = async () => {
+    try {
+      setLoading(true);
+      const docs = await fetchDocuments({});
+      setDocuments(docs);
+    } catch (error) {
+      console.error('Failed to load documents:', error);
+      setError('Error fetching documents');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Insert a new document
   const handleInsert = async () => {
     try {
-      // Check if any field is empty or missing
-      if (Object.values(newDoc).some(value => !value.trim())) {
+      // Check if any field is empty
+      if (Object.values(newDoc).some(value => value === '')) {
         alert('All fields must be filled before submitting.');
-        return; // Stop execution if any field is empty
+        return;
       }
-  
-      const hobbiesArray = newDoc.hobbies.split(',').map(hobby => hobby.trim()); // Convert hobbies to array
-      const response = await insertDocument({ ...newDoc, hobbies: hobbiesArray });
-  
-      console.log(newDoc);
-      // alert(`Document inserted with ID: ${response.documentId}`);
+
+      await insertDocument(newDoc);
+      setNewDoc({ senderName: '', receiverName: '', note: '', cardNumber: '', receiverEmail: '' });
+
+      // Reload documents after insertion
+      loadDocuments();
     } catch (error) {
       alert('Failed to insert document');
     }
   };
+
   return (
     <div>
       <h1>MongoDB React App</h1>
@@ -56,40 +68,47 @@ const DatabaseComponent = () => {
         onChange={(e) => setNewDoc({ ...newDoc, receiverName: e.target.value })}
       />
       <input
-          type="text"
-          placeholder="Link"
-          value={newDoc.link}
-          onChange={(e) => setNewDoc({ ...newDoc, link: e.target.value })}
-        />
-      <input
-        type="number"
-        placeholder="Card Number"
-        value={newDoc.cardNumber}
-        onChange={(e) => setNewDoc({ ...newDoc, cardNumber: parseInt(e.target.value, 10) })}
+        type="text"
+        placeholder="Receiver email"
+        value={newDoc.receiverEmail}
+        onChange={(e) => setNewDoc({ ...newDoc, receiverEmail: e.target.value })}
       />
-      {/* TODO: MISSING LINK AND EMAILS */}
 
-      {/* example input */}
+      {/* Dropdown for selecting cardNumber */}
+      <select
+        value={newDoc.cardNumber}
+        onChange={(e) => setNewDoc({ ...newDoc, cardNumber: e.target.value })}
+      >
+        <option value="">Select a Card Number</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+
       <input
         type="text"
-        placeholder="Hobbies (comma-separated)"
-        value={newDoc.hobbies}
-        onChange={(e) => setNewDoc({ ...newDoc, hobbies: e.target.value })}
+        placeholder="Note"
+        value={newDoc.note}
+        onChange={(e) => setNewDoc({ ...newDoc, note: e.target.value })}
       />
+
       <button onClick={handleInsert}>Insert</button>
 
       <h2>Fetched Documents</h2>
+      {loading ? <p>Loading...</p> : null}
+      {error ? <p style={{ color: 'red' }}>{error}</p> : null}
+
       <ul>
-      {documents.map((doc) => (
-        <li key={doc._id}>
-          {Object.entries(doc).map(([key, value]) => (
-            <span key={key}>
-              <strong>{key}:</strong>{" "}
-              {Array.isArray(value) ? value.join(", ") + " // ": value.toString() + " // "}
-            </span>
-          ))}
-        </li>
-      ))}
+        {documents.map((doc) => (
+          <li key={doc._id}>
+            {Object.entries(doc).map(([key, value]) => (
+              <span key={key}>
+                <strong>{key}:</strong> {Array.isArray(value) ? value.join(", ") : value.toString()}{" // "}
+              </span>
+            ))}
+          </li>
+        ))}
       </ul>
     </div>
   );
