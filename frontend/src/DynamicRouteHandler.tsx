@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { insertDocument, fetchDocuments } from './APIService';
 import Card1 from "./cards/card1/Card1";
-import Card2 from "./cards/card2/Card2"
+import Card2 from "./cards/card2/Card2";
+import Card3 from './cards/card3/Card3';
+import Card4 from './cards/card4/Card4';
 
 const DynamicRouteHandler = () => {
   const location = useLocation(); // Get the current URL path
@@ -48,6 +50,8 @@ const DynamicRouteHandler = () => {
   if (entry) {
     if (entry.cardNumber === 1 || entry.cardNumber === "1") display = <Card1 senderName={entry.senderName} receiverName={entry.receiverName} note={entry.note}/> 
     else if (entry.cardNumber === 2 || entry.cardNumber === "2") display = <Card2 senderName={entry.senderName} receiverName={entry.receiverName} note={entry.note}/> 
+    else if (entry.cardNumber === 3 || entry.cardNumber === "3") display = <Card3 senderName={entry.senderName} receiverName={entry.receiverName} note={entry.note}/> 
+    else if (entry.cardNumber === 4 || entry.cardNumber === "4") display = <Card4 senderName={entry.senderName} receiverName={entry.receiverName} note={entry.note}/> 
 
     else display = <p>404: Entry not found</p>
   }
@@ -60,10 +64,3 @@ const DynamicRouteHandler = () => {
 };
 
 export default DynamicRouteHandler;
-
-        // <div>
-        //   <p>{entry.senderName}</p>
-        //   <p>{entry.receiverName}</p>
-        //   <p>{entry.link}</p>
-        //   <p>{entry.cardNumber}</p>
-        // </div>
