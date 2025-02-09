@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { insertDocument, fetchDocuments } from './APIService';
 import Card1 from "./cards/card1/Card1";
+import Card2 from "./cards/card2/Card2"
 
 const DynamicRouteHandler = () => {
   const location = useLocation(); // Get the current URL path
@@ -45,7 +46,8 @@ const DynamicRouteHandler = () => {
   var display = <p>404: Entry not found</p>;
 
   if (entry) {
-    if (entry.cardNumber === 1) display = <Card1 senderName={entry.senderName} receiverName={entry.receiverName} note="fill in"/> 
+    if (entry.cardNumber === 1 || entry.cardNumber === "1") display = <Card1 senderName={entry.senderName} receiverName={entry.receiverName} note={entry.note}/> 
+    else if (entry.cardNumber === 2 || entry.cardNumber === "2") display = <Card2 senderName={entry.senderName} receiverName={entry.receiverName} note={entry.note}/> 
 
     else display = <p>404: Entry not found</p>
   }

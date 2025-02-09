@@ -77,15 +77,14 @@ const DatabaseComponent = () => {
       {/* Dropdown for selecting cardNumber */}
       <select
         value={newDoc.cardNumber}
-        onChange={(e) => setNewDoc({ ...newDoc, cardNumber: e.target.value })}
+        onChange={(e) => setNewDoc({ ...newDoc, cardNumber: Number(e.target.value) })}
       >
         <option value="">Select a Card Number</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}>4</option>
       </select>
-
       <input
         type="text"
         placeholder="Note"

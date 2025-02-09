@@ -40,9 +40,8 @@ const Card1: React.FC<Card1Props> = ({ senderName, receiverName, note }) => {
           </div>
         </div>
         <div className="text">
-          Happy Valentine's
+          {note}
           <br />
-          Day!
         </div>
       </div>
       <p className="hover">- hover over the text -</p>
