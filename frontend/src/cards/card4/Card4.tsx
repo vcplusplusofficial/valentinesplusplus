@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"; // Ensure styles are correctly imported
+import styles from "./styles.module.css";
 
 interface Card4Props {
   senderName: string;
@@ -9,31 +9,35 @@ interface Card4Props {
 
 const Card4: React.FC<Card4Props> = ({ senderName, receiverName, note }) => {
   return (
-    <div>
-      <p className="cite">Base designed by @lenadesign5043</p>
+    <div className={styles.page}>
+      <p className={styles.cite}>Base designed by @lenadesign5043</p>
 
-      <div className="valentines-day-card">
+      <div className={styles.valentinesDayCard}>
         {/* Checkbox to toggle the card open/close */}
-        <input id="open" type="checkbox" />
-        <label className="open" htmlFor="open"></label>
+        <input id={styles.open} type={styles.checkBox} />
+        <label className={styles.open} htmlFor={styles.open}></label>
 
         {/* Card Front */}
-        <div className="card-front">
-          <div className="note">Click to Open</div>
+        <div className={styles.cardFront}>
+          <div className={styles.note}>Click to Open</div>
         </div>
 
         {/* Card Inside */}
-        <div className="card-inside">
-          <div className="text-one">Happy</div>
-          <div className="heart"></div>
-          <div className="smile"></div>
-          <div className="eyes"></div>
+        <div className={styles.cardInside}>
+          <div className={styles.textOne}>Happy</div>
+          <div className={styles.heart}></div>
+          <div className={styles.smile}></div>
+          <div className={styles.eyes}></div>
 
           {/* Sender & Receiver Info */}
-          <div className="card-message">
-            <p><strong>From:</strong> {senderName}</p>
-            <p><strong>To:</strong> {receiverName}</p>
-            <p className="note-text">{note}</p>
+          <div className={styles.cardMessage}>
+            <p>
+              <strong>From:</strong> {senderName}
+            </p>
+            <p>
+              <strong>To:</strong> {receiverName}
+            </p>
+            <p className={styles.noteText}>{note}</p>
           </div>
         </div>
       </div>

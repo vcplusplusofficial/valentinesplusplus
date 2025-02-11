@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"; // Import styles
+import styles from "./styles.module.css";
 
 interface Card2Props {
   senderName: string;
@@ -9,33 +9,35 @@ interface Card2Props {
 
 const Card2: React.FC<Card2Props> = ({ senderName, receiverName, note }) => {
   return (
-    <div className="container">
-      <p className="cite">Base designed by @lenadesign5043</p>
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <p className={styles.cite}>Base designed by @lenadesign5043</p>
 
-      <div className="valentines">
-        <div className="envelope"></div>
-        <div className="front">
-          <div className="to-from">
-            <p className="from">From: {senderName}</p>
-            <p className="to">To: {receiverName}</p>
+        <div className={styles.valentines}>
+          <div className={styles.envelope}></div>
+          <div className={styles.front}>
+            <div className={styles.toFrom}>
+              <p className={styles.from}>From: {senderName}</p>
+              <p className={styles.to}>To: {receiverName}</p>
+            </div>
+          </div>
+
+          <div className={styles.card}>
+            <div className={styles.text}>{note}</div>
+            <div className={styles.heart}></div>
+          </div>
+
+          <div className={styles.hearts}>
+            <div className={styles.one}></div>
+            <div className={styles.two}></div>
+            <div className={styles.three}></div>
+            <div className={styles.four}></div>
+            <div className={styles.five}></div>
           </div>
         </div>
 
-        <div className="card">
-          <div className="text">{note}</div>
-          <div className="heart"></div>
-        </div>
-
-        <div className="hearts">
-          <div className="one"></div>
-          <div className="two"></div>
-          <div className="three"></div>
-          <div className="four"></div>
-          <div className="five"></div>
-        </div>
+        <div className={styles.shadow}></div>
       </div>
-
-      <div className="shadow"></div>
     </div>
   );
 };

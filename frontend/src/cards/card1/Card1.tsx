@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"; // Assuming your styles are in styles.css
+import styles from "./styles.module.css";
 
 interface Card1Props {
   senderName: string;
@@ -9,42 +9,51 @@ interface Card1Props {
 
 const Card1: React.FC<Card1Props> = ({ senderName, receiverName, note }) => {
   return (
-    <div className="happy-valentines">
-      <p className="cite">base designed by @lenadesign5043</p>
-      <div className="to-from">
-        <p className="to">To: {receiverName}</p>
-        <p className="from">From: {senderName}</p>
-      </div>
-      <div className="valentines-day-card">
-        <div className="clouds"></div>
-        <div className="hearts">
-          <div className="heartOne">
-            <div className="left-side"></div>
-            <div className="right-side"></div>
+    <div className={styles.page}>
+      <div className={styles.happyValentines}>
+        <p className={styles.cite}>base designed by @lenadesign5043</p>
+        <div className={styles.toFrom}>
+          <p className={styles.to}>To: {receiverName}</p>
+          <p className={styles.from}>From: {senderName}</p>
+        </div>
+        <div className={styles.valentinesDayCard}>
+          <div className={styles.clouds}></div>
+          <div className={styles.hearts}>
+            <div className={styles.heartOne}>
+              <div className={styles.leftSide}></div>
+              <div className={styles.rightSide}></div>
+            </div>
+            <div className={styles.heartTwo}>
+              <div className={styles.leftSide}></div>
+              <div className={styles.rightSide}></div>
+            </div>
+            <div className={styles.heartThree}>
+              <div className={styles.leftSide}></div>
+              <div className={styles.rightSide}></div>
+            </div>
+            <div className={styles.heartFour}>
+              <div className={styles.leftSide}></div>
+              <div className={styles.rightSide}></div>
+            </div>
+            <div className={styles.heartFive}>
+              <div className={styles.leftSide}></div>
+              <div className={styles.rightSide}></div>
+            </div>
           </div>
-          <div className="heartTwo">
-            <div className="left-side"></div>
-            <div className="right-side"></div>
-          </div>
-          <div className="heartThree">
-            <div className="left-side"></div>
-            <div className="right-side"></div>
-          </div>
-          <div className="heartFour">
-            <div className="left-side"></div>
-            <div className="right-side"></div>
-          </div>
-          <div className="heartFive">
-            <div className="left-side"></div>
-            <div className="right-side"></div>
+          <div className={styles.message}>
+            <div className={styles.text}>
+              {note}
+              <br />
+            </div>
+            <div className={styles.text}>
+              Happy Valentine's
+              <br />
+              Day!
+            </div>
           </div>
         </div>
-        <div className="text">
-          {note}
-          <br />
-        </div>
+        <p className={styles.hover}>- hover over the text -</p>
       </div>
-      <p className="hover">- hover over the text -</p>
     </div>
   );
 };

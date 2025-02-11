@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"; // Ensure you have the styles imported
+import styles from "./styles.module.css";
 
 interface Card3Props {
   senderName: string;
@@ -9,25 +9,25 @@ interface Card3Props {
 
 const Card3: React.FC<Card3Props> = ({ senderName, receiverName, note }) => {
   return (
-    <div>
-      <p className="cite">Base designed by @lenadesign5043</p>
+    <div className={styles.page}>
+      <p className={styles.cite}>Base designed by @lenadesign5043</p>
 
-      <div className="chocolate-box">
-        <div className="chocs">
-          <div id="top-left" className="top-left"></div>
-          <div id="top-right" className="top-right"></div>
-          <div id="bottom-left" className="bottom-left"></div>
-          <div id="bottom-right" className="bottom-right"></div>
+      <div className={styles.chocolateBox}>
+        <div className={styles.chocs}>
+          <div id={styles.topLeft} className={styles.topLeft}></div>
+          <div id={styles.topRight} className={styles.topRight}></div>
+          <div id={styles.bottomLeft} className={styles.bottomLeft}></div>
+          <div id={styles.bottomRight} className={styles.bottomRight}></div>
         </div>
 
-        <div className="box-bottom"></div>
-        <div className="cover"></div>
+        <div className={styles.boxBottom}></div>
+        <div className={styles.cover}></div>
 
         {/* Labels for the chocolates */}
-        <div id="white">White Chocolate</div>
-        <div id="milk">Milk Chocolate</div>
-        <div id="truffle">Chocolate Truffle</div>
-        <div id="truffle2">Chocolate Truffle</div>
+        <div id={styles.white}>White Chocolate</div>
+        <div id={styles.milk}>Milk Chocolate</div>
+        <div id={styles.truffle}>Chocolate Truffle</div>
+        <div id={styles.truffle2}>Chocolate Truffle</div>
       </div>
     </div>
   );
