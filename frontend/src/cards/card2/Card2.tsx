@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 
 interface Card2Props {
@@ -8,11 +8,21 @@ interface Card2Props {
 }
 
 const Card2: React.FC<Card2Props> = ({ senderName, receiverName, note }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div className={styles.page}>
-      <div className={styles.container}>
-        <p className={styles.cite}>Base designed by @lenadesign5043</p>
+      <p className={styles.cite}>Base designed by @lenadesign5043</p>
 
+      <div
+        className={styles.container}
+        onMouseEnter={() => {
+          setIsHovered(true);
+          console.log("hovered");
+        }}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Valentine's Card with conditional animation */}
         <div className={styles.valentines}>
           <div className={styles.envelope}></div>
           <div className={styles.front}>
@@ -22,20 +32,23 @@ const Card2: React.FC<Card2Props> = ({ senderName, receiverName, note }) => {
             </div>
           </div>
 
-          <div className={styles.card}>
-            <div className={styles.text}>{note}</div>
+          <div className={`${styles.card} ${isHovered ? styles.lift : ""}`}>
+            <div className={styles.text}>
+              Happy
+              <br /> Valentine's
+              <br /> Day!
+            </div>
             <div className={styles.heart}></div>
-          </div>
 
-          <div className={styles.hearts}>
-            <div className={styles.one}></div>
-            <div className={styles.two}></div>
-            <div className={styles.three}></div>
-            <div className={styles.four}></div>
-            <div className={styles.five}></div>
+            <div className={styles.hearts}>
+              <div className={styles.one}></div>
+              <div className={styles.two}></div>
+              <div className={styles.three}></div>
+              <div className={styles.four}></div>
+              <div className={styles.five}></div>
+            </div>
           </div>
         </div>
-
         <div className={styles.shadow}></div>
       </div>
     </div>

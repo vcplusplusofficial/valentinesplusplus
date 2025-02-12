@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 .page {
   display: flex;
@@ -18,6 +19,12 @@
   top: 50px;
   cursor: pointer;
   animation: up 3s linear infinite;
+  transition: transform 0.5s ease-in-out;
+}
+
+.lift {
+  transition: 0.5s ease-in-out;
+  transform: translateY(-90px);
 }
 
 .envelope {
@@ -62,7 +69,8 @@
 
 .text {
   position: absolute;
-  font-family: "Brush Script MT", cursive;
+  font-family: "Brush Script MT";
+  font-style: "cursive";
   font-size: 28px;
   text-align: center;
   line-height: 25px;
@@ -155,7 +163,7 @@
   top: 265px;
   left: -15px;
   animation: scale 3s linear infinite;
-  z-index: -1;
+  z-index: 2;
 }
 
 @keyframes scale {
@@ -183,8 +191,9 @@
   margin: 0 10px;
   position: relative;
   transform: rotate(-45deg);
+  animation: heart 1s ease-out infinite;
   width: 10px;
-  top: 50px;
+  top: 10px;
 }
 
 .one:before,
@@ -205,6 +214,31 @@
   width: 10px;
 }
 
+.one {
+  left: 10px;
+  animation-duration: 1s;
+}
+
+.two {
+  left: 30px;
+  animation-duration: 2s;
+}
+
+.three {
+  left: 50px;
+  animation-duration: 1.5s;
+}
+
+.four {
+  left: 70px;
+  animation-duration: 2.3s;
+}
+
+.five {
+  left: 90px;
+  animation-duration: 1.7s;
+}
+
 .one:before,
 .two:before,
 .three:before,
@@ -221,31 +255,6 @@
 .five:after {
   left: 5px;
   top: 0;
-}
-
-.one {
-  left: 10px;
-  animation: heart 1s ease-out infinite;
-}
-
-.two {
-  left: 30px;
-  animation: heart 2s ease-out infinite;
-}
-
-.three {
-  left: 50px;
-  animation: heart 1.5s ease-out infinite;
-}
-
-.four {
-  left: 70px;
-  animation: heart 2.3s ease-out infinite;
-}
-
-.five {
-  left: 90px;
-  animation: heart 1.7s ease-out infinite;
 }
 
 @keyframes heart {
