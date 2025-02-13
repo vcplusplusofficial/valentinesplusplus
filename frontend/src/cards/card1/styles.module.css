@@ -193,7 +193,8 @@
 .hover,
 .toFrom,
 .message,
-.cite {
+.cite,
+.vc {
   font-family: "Pacifico", cursive;
   text-align: center;
 }
@@ -249,10 +250,22 @@
   font-size: 25px;
 }
 
-.cite {
-  font-size: 14px;
+.cite,
+.vc {
+  font-style: italic;
   position: absolute;
-  bottom: 0;
+  line-height: 16px;
+  color: #803143;
+  text-align: right;
+  font-size: 16px; /* Changed 'font-family' to 'font-size' */
   right: 0;
   padding-right: 10px;
+}
+
+.cite {
+  bottom: 20px;
+}
+
+.vc {
+  bottom: 0;
 }

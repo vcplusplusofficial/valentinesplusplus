@@ -42,7 +42,11 @@ const Card1: React.FC<Card1Props> = ({ senderName, receiverName, note }) => {
   return (
     <div className={styles.page}>
       <div className={styles.happyValentines}>
-        <p className={styles.cite}>base designed by @lenadesign5043</p>
+        <p className={styles.cite}>Base designed by @lenadesign5043</p>
+        <p className={styles.vc}>
+          Brought to you by VC++, Vassar Computer Science Club, Spring 2025
+        </p>
+
         <div className={styles.toFrom}>
           <p className={styles.to}>To: {receiverName}</p>
           <p className={styles.from}>From: {senderName}</p>

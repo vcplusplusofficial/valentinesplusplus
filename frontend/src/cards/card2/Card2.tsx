@@ -13,12 +13,13 @@ const Card2: React.FC<Card2Props> = ({ senderName, receiverName, note }) => {
   return (
     <div className={styles.page}>
       <p className={styles.cite}>Base designed by @lenadesign5043</p>
-
+      <p className={styles.vc}>
+        Brought to you by VC++, Vassar Computer Science Club, Spring 2025
+      </p>
       <div
         className={styles.container}
         onMouseEnter={() => {
           setIsHovered(true);
-          console.log("hovered");
         }}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -49,7 +50,10 @@ const Card2: React.FC<Card2Props> = ({ senderName, receiverName, note }) => {
             </div>
           </div>
         </div>
-        <div className={styles.shadow}></div>
+        <div className={styles.shadow}></div>\
+        <p className={`${styles.message} ${isHovered ? styles.show : ""}`}>
+          {note}
+        </p>
       </div>
     </div>
   );

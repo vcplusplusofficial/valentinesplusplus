@@ -121,14 +121,25 @@
   }
 }
 
-.cite {
-  font-family: "Pacifico";
-  font-size: 14px; /* Changed 'font-family' to 'font-size' */
+.cite,
+.vc {
+  font-family: "Crimson Apple";
+  font-style: italic;
   position: absolute;
-  bottom: 0;
+  line-height: 16px;
+  color: #803143;
+  text-align: right;
+  font-size: 16px; /* Changed 'font-family' to 'font-size' */
   right: 0;
-  z-index: 10;
   padding-right: 10px;
+}
+
+.cite {
+  bottom: 20px;
+}
+
+.vc {
+  bottom: 0;
 }
 
 .front {
@@ -297,4 +308,27 @@
 
 .from {
   top: 42px;
+}
+
+.message {
+  opacity: 0;
+  color: black;
+  font-family: "Crimson Apple", cursive;
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  position: absolute;
+  width: 300px;
+  left: 50%;
+  transform: translate(-50%, 50px);
+  top: calc(130% + 15px);
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 10;
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.container:hover .message {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
