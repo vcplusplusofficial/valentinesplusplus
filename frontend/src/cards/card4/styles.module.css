@@ -11,7 +11,7 @@
   font-family: "Mochiy Pop P One", sans-serif;
 }
 
-input#open {
+.checkBox {
   display: none;
 }
 
@@ -45,7 +45,7 @@ input#open {
   left: 10px;
 }
 
-.card-inside {
+.cardInside {
   position: absolute;
   background-color: #fff0f3;
   width: 300px;
@@ -68,13 +68,13 @@ input#open {
   cursor: pointer;
 }
 
-#open:checked ~ .cardFront {
+.checkBox:checked ~ .cardFront {
   transform: rotateY(-155deg);
   box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.13),
     30px 0 50px rgba(0, 0, 0, 0.1);
 }
 
-#open:checked ~ .cardFront:before {
+.checkBox:checked ~ .cardFront:before {
   z-index: 5;
   background-color: #fff0f3;
   width: 300px;

@@ -10,7 +10,7 @@ interface Card1Props {
 // fix the message to fit in the card
 
 const MAX_CHARACTERS_PER_LINE = 30;
-const MAX_LINES = 3;
+const MAX_LINES = 5;
 
 const Card1: React.FC<Card1Props> = ({ senderName, receiverName, note }) => {
   const [showNote, setShowNote] = useState(false);
@@ -37,6 +37,7 @@ const Card1: React.FC<Card1Props> = ({ senderName, receiverName, note }) => {
 
   const noteLines = splitMessageIntoLines(note);
   const isNoteTooLong = noteLines.length > MAX_LINES;
+  console.log(noteLines.length);
 
   return (
     <div className={styles.page}>
@@ -46,7 +47,11 @@ const Card1: React.FC<Card1Props> = ({ senderName, receiverName, note }) => {
           <p className={styles.to}>To: {receiverName}</p>
           <p className={styles.from}>From: {senderName}</p>
         </div>
-        <div className={styles.valentinesDayCard}>
+        <div
+          className={styles.valentinesDayCard}
+          onMouseEnter={() => setShowNote(true)}
+          onMouseLeave={() => setShowNote(false)}
+        >
           <div className={styles.clouds}></div>
           <div className={styles.hearts}>
             {[...Array(5)].map((_, index) => (
@@ -56,13 +61,13 @@ const Card1: React.FC<Card1Props> = ({ senderName, receiverName, note }) => {
               </div>
             ))}
           </div>
-          <div
-            className={styles.message}
-            onMouseEnter={() => setShowNote(true)}
-            onMouseLeave={() => setShowNote(false)}
-          >
+          <div>
             {showNote && !isNoteTooLong ? (
-              <div className={styles.text}>
+              <div
+                className={`${styles.message} ${
+                  noteLines.length > 3 ? styles.fourPlus : styles.twoPlus
+                }`}
+              >
                 {noteLines.map((line, idx) => (
                   <p key={idx}>{line}</p>
                 ))}

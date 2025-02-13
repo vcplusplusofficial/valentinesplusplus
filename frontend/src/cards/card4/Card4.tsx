@@ -14,8 +14,8 @@ const Card4: React.FC<Card4Props> = ({ senderName, receiverName, note }) => {
 
       <div className={styles.valentinesDayCard}>
         {/* Checkbox to toggle the card open/close */}
-        <input id={styles.open} type={styles.checkBox} />
-        <label className={styles.open} htmlFor={styles.open}></label>
+        <input type="checkbox" id="cardToggle" className={styles.checkBox} />
+        <label htmlFor="cardToggle" className={styles.open}></label>
 
         {/* Card Front */}
         <div className={styles.cardFront}>
@@ -28,17 +28,17 @@ const Card4: React.FC<Card4Props> = ({ senderName, receiverName, note }) => {
           <div className={styles.heart}></div>
           <div className={styles.smile}></div>
           <div className={styles.eyes}></div>
+        </div>
 
-          {/* Sender & Receiver Info */}
-          <div className={styles.cardMessage}>
-            <p>
-              <strong>From:</strong> {senderName}
-            </p>
-            <p>
-              <strong>To:</strong> {receiverName}
-            </p>
-            <p className={styles.noteText}>{note}</p>
-          </div>
+        {/* Sender & Receiver Info */}
+        <div className={styles.cardMessage}>
+          <p>
+            <strong>From:</strong> {senderName}
+          </p>
+          <p>
+            <strong>To:</strong> {receiverName}
+          </p>
+          <p className={styles.noteText}>{note}</p>
         </div>
       </div>
     </div>
