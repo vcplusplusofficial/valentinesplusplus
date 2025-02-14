@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 
 interface Card4Props {
@@ -8,12 +8,23 @@ interface Card4Props {
 }
 
 const Card4: React.FC<Card4Props> = ({ senderName, receiverName, note }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div className={styles.page}>
       <p className={styles.cite}>Base designed by @lenadesign5043</p>
+      <p className={styles.vc}>
+        Brought to you by VC++, Vassar Computer Science Club, Spring 2025
+      </p>
 
+      {/* "To" and "From" section positioned above the card */}
+      <div className={styles.toFrom}>
+        <p className={styles.to}>To: {receiverName}</p>
+        <p className={styles.from}>From: {senderName}</p>
+      </div>
+
+      {/* Valentine's Day Card */}
       <div className={styles.valentinesDayCard}>
-        {/* Checkbox to toggle the card open/close */}
         <input type="checkbox" id="cardToggle" className={styles.checkBox} />
         <label htmlFor="cardToggle" className={styles.open}></label>
 
@@ -24,22 +35,13 @@ const Card4: React.FC<Card4Props> = ({ senderName, receiverName, note }) => {
 
         {/* Card Inside */}
         <div className={styles.cardInside}>
+          {/* Right side content */}
           <div className={styles.textOne}>Happy</div>
           <div className={styles.heart}></div>
           <div className={styles.smile}></div>
           <div className={styles.eyes}></div>
         </div>
-
-        {/* Sender & Receiver Info */}
-        <div className={styles.cardMessage}>
-          <p>
-            <strong>From:</strong> {senderName}
-          </p>
-          <p>
-            <strong>To:</strong> {receiverName}
-          </p>
-          <p className={styles.noteText}>{note}</p>
-        </div>
+        <p className={styles.message}>{note}</p>
       </div>
     </div>
   );

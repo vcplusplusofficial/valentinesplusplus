@@ -51,9 +51,7 @@ const Card2: React.FC<Card2Props> = ({ senderName, receiverName, note }) => {
           </div>
         </div>
         <div className={styles.shadow}></div>\
-        <p className={`${styles.message} ${isHovered ? styles.show : ""}`}>
-          {note}
-        </p>
+        <p className={styles.message}>{note}</p>
       </div>
     </div>
   );
