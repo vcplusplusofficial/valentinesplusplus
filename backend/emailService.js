@@ -81,9 +81,18 @@ const main = async () => {
   const receiverTemplate = fs.readFileSync("./templates/receiverTemplate.ejs", "utf-8");
   const senderTemplate = fs.readFileSync("./templates/senderTemplate.ejs", "utf-8");
 
+  const failed_id = "";
+  const begin = false;
+
   for (const doc of documents){
-    await sendEmail(transporter, doc, receiverTemplate, true);
-    await sendEmail(transporter, doc, senderTemplate, false);
+    if (doc['_id'] === failed_id) begin = true;
+
+    if (begin){
+      await sendEmail(transporter, doc, receiverTemplate, true);
+      await sendEmail(transporter, doc, senderTemplate, false);
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
   }
 }
 
