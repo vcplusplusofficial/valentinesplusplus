@@ -10,6 +10,13 @@
   overflow: hidden;
 }
 
+/* New wrapper to hold chocolateBox and text together */
+.chocolateWrapper {
+  position: relative;
+  /* Optional: set dimensions to match chocolateBox if needed */
+}
+
+/* Chocolate Box Styles */
 .chocolateBox {
   position: relative;
   height: 300px;
@@ -47,6 +54,7 @@
   z-index: 1;
 }
 
+/* Hotspot Styles */
 .topLeft {
   top: 92px;
   left: 90px;
@@ -126,6 +134,15 @@
   transition: 0.2s;
 }
 
+/* Added hover and active states for topRight */
+.topRight:hover {
+  transform: rotate(25deg);
+}
+
+.topRight:active {
+  opacity: 0;
+}
+
 .topRight:before,
 .topRight:after {
   content: "";
@@ -148,22 +165,6 @@
   box-shadow: 0 17px #93522b, 0 30px #93522b;
 }
 
-.bottomLeft:hover {
-  transform: rotate(25deg);
-}
-
-.bottomLeft:active {
-  opacity: 0;
-}
-
-.topRight:hover {
-  transform: rotate(25deg);
-}
-
-.topRight:active {
-  opacity: 0;
-}
-
 .bottomLeft {
   position: absolute;
   border-radius: 50%;
@@ -175,6 +176,14 @@
   filter: drop-shadow(2px 2px #342010) drop-shadow(-2px 2px #342010);
   overflow: hidden;
   transition: 0.2s;
+}
+
+.bottomLeft:hover {
+  transform: rotate(25deg);
+}
+
+.bottomLeft:active {
+  opacity: 0;
 }
 
 .bottomLeft:before,
@@ -199,6 +208,7 @@
   box-shadow: 0 17px #fde7c7, 0 30px #fde7c7;
 }
 
+/* Box Bottom and Cover Styles */
 .box-bottom {
   position: absolute;
   background-color: #392312;
@@ -239,10 +249,7 @@
   content: "Hover Me";
   color: #ffead2;
   font-family: "Brush Script MT", cursive;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 17px 25px;
   font-size: 35px;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -262,39 +269,26 @@
   box-shadow: -5px 165px #ffead2;
 }
 
-#white,
-#milk,
-#truffle,
-#truffle2 {
+/* New Text Container: absolutely positioned so it overlays beside the chocolateBox without reflowing content */
+.textContainer {
   position: absolute;
-  width: 100%;
-  display: none;
-  color: #ffead2;
+  left: 320px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
   font-family: "Brush Script MT", cursive;
-  font-size: 25px;
-  transition: 0.1;
+  font-size: 32px;
+  color: #e72c2c;
+  margin-bottom: 10px;
+  width: 300px; /* or 250px, etc. */
+  white-space: normal; /* allow text to wrap */
+  word-wrap: break-word; /* ensure it breaks on long words if needed */
 }
-
-#white {
-  top: 100px;
-  left: 250px;
-}
-
-#milk {
-  top: 170px;
-  left: -70px;
-}
-
-#truffle {
-  left: 250px;
-  top: 170px;
-}
-
-#truffle2 {
-  left: -70px;
-  top: 100px;
-}
-
+/* Footer and To/From Styles */
 .cite,
 .vc {
   font-family: "Pacifico";
@@ -303,7 +297,7 @@
   line-height: 16px;
   color: #803143;
   text-align: right;
-  font-size: 16px; /* Changed 'font-family' to 'font-size' */
+  font-size: 16px;
   right: 0;
   padding-right: 10px;
 }
@@ -314,4 +308,17 @@
 
 .vc {
   bottom: 0;
+}
+
+.toFrom {
+  font-family: "Homemade Apple";
+  display: flex;
+  flex-direction: column;
+  color: #362516;
+  text-align: center;
+  line-height: 1;
+  font-size: 25px;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 10px;
 }
