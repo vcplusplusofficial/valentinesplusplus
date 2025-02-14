@@ -43,6 +43,7 @@ function mapColumnsNames(document){
     "Recipient’s email address": "receiverEmail",
     "Would you like to add a message? (optional)": "note",
     "Choose an option for your card!": "cardNumber",
+    "Would you like to add roses and a chocolate gift package for $5?": "giftPackage"
   } 
 
   const cardOptionMapping = { 

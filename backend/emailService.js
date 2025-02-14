@@ -39,28 +39,19 @@ async function fetchAllDocuments() {
   }
 }
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-  },
-});
 
-async function sendEmail(userEmail, userName) {
-  // 1. Create Transporter (SMTP settings)
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
 
-  // 2. Read & Render the EJS Template
-  const templatePath = path.join(__dirname, "emailTemplate.ejs");
-  const template = fs.readFileSync(templatePath, "utf-8");
-  const htmlContent = ejs.render(template, { name: userName });
+async function sendEmail (transporter, document, template, receiver) {
+  const userEmail = document['receiverEmail'];
+  const userName = document['receiverName'];
+  const redirectLink = document['_id'];
+
+  // 1. 
+  const htmlContent = 
+    receiver ? 
+      ejs.render(template, { recieverName: userName, redirectLink: redirectLink }) : // reciver
+      ejs.render(template, { recieverName: userName, redirectLink: redirectLink }) // sender URLS
+  ;
 
   // 3. Send Email with Rendered HTML
   const mailOptions = {
@@ -77,12 +68,22 @@ async function sendEmail(userEmail, userName) {
 const main = async () => {
   const documents = await fetchAllDocuments();
 
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  const receiverTemplate = fs.readFileSync("./templates/receiverTemplate.ejs", "utf-8");
+
   // for (const doc of documents){
   //    console.log(doc);
   // }
 
   // console.log(documents[3]);
-  await sendEmail(documents[3]['receiverEmail'], documents[3]['receiverName']);
+  await sendEmail(transporter, documents[3], receiverTemplate, true);
 
 }
 
