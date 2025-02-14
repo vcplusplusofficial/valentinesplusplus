@@ -45,12 +45,13 @@ async function sendEmail (transporter, document, template, receiver) {
   const userEmail = document['receiverEmail'];
   const userName = document['receiverName'];
   const redirectLink = document['_id'];
+  const packageBoolean = document['giftPackage'] === "Yes";
 
-  // 1. 
+  // 1. Rendering template
   const htmlContent = 
     receiver ? 
-      ejs.render(template, { recieverName: userName, redirectLink: redirectLink }) : // reciver
-      ejs.render(template, { recieverName: userName, redirectLink: redirectLink }) // sender URLS
+      ejs.render(template, { recieverName: userName, redirectLink: redirectLink, packageBoolean: packageBoolean }) : // reciver
+      ejs.render(template, { recieverName: userName, redirectLink: redirectLink }) // sender 
   ;
 
   // 3. Send Email with Rendered HTML
