@@ -81,14 +81,14 @@ const main = async () => {
   const senderTemplate = fs.readFileSync("./templates/senderTemplate.ejs", "utf-8");
 
 
-  // for (const doc of documents){
-  //    console.log(doc);
-  // }
+  for (const doc of documents){
+    await sendEmail(transporter, doc, receiverTemplate, true);
+    await sendEmail(transporter, doc, senderTemplate, false);
+  }
 
   // console.log(documents[3]);
-  await sendEmail(transporter, documents[3], receiverTemplate, true);
-  await sendEmail(transporter, documents[3], senderTemplate, false);
-
+  // await sendEmail(transporter, documents[3], receiverTemplate, true);
+  // await sendEmail(transporter, documents[3], senderTemplate, false);
 }
 
 main();
