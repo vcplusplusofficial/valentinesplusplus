@@ -27,13 +27,45 @@ async function connectToDatabase() {
 
 async function insertDocument(collection, document) {
   try {
-    const insertResult = await collection.insertOne(document);
+    const insertResult = await collection.insertOne(mapColumnsNames(document));
     console.log("Document inserted successfully!", insertResult.insertedId);
   } catch (error) {
     console.error("Error inserting document:", error);
   } finally {
     await client.close();
   }
+}
+
+function mapColumnsNames(document){
+  var res = {};
+
+  const nameMapping = {
+    "Write your first and last name or leave it blank if you'd like to stay anonymous!": "senderName",
+    "Who are we sending this gift to? (Recipient’s name)": "receiverName",
+    "Recipient’s email address": "receiverEmail",
+    "Would you like to add a message? (optional)": "note",
+    "Choose an option for your card!": "cardNumber",
+  } 
+
+  const cardOptionMapping = { 
+    "Option 1": "4", 
+    "Option 2": "3",
+    "Option 3": "2",
+    "Option 4": "1",
+  }
+
+  for (const key in document) {
+    if (key in nameMapping) {
+      
+      if (key === "Choose an option for your card!"){
+        const convertedOption = cardOptionMapping[document[key]];
+        res[nameMapping[key]] = convertedOption;
+      }
+      else res[nameMapping[key]] = document[key];
+    } else res[key] = document[key];
+  }
+
+  return res;
 }
 
 const main = async () => {
@@ -54,19 +86,20 @@ const main = async () => {
 
   // console.log(results);
 
-  const document = {
-    Timestamp: new Date().toISOString(),
-    "Email Address": "jlui@vassar.edu",
-    "Write your first and last name or leave it blank if you'd like to stay anonymous!": "Sujaq",
-    "Who are we sending this gift to? (Recipient’s name)": "Sujaq",
-    "Recipient’s email address": "Suhuq@vassar.edu",
-    "Would you like to add a message? (optional)": "I bet you’re hungry. Fatty.",
-    "Choose an option for your card!": "Option 2",
-    "Would you like to add roses and a chocolate gift package for $5?": "No"
-  };
+
+  // const document = {
+  //   Timestamp: new Date().toISOString(),
+  //   "Email Address": "jlui@vassar.edu",
+  //   "Write your first and last name or leave it blank if you'd like to stay anonymous!": "Sujaq",
+  //   "Who are we sending this gift to? (Recipient’s name)": "Sujaq",
+  //   "Recipient’s email address": "Suhuq@vassar.edu",
+  //   "Would you like to add a message? (optional)": "I bet you’re hungry. Fatty.",
+  //   "Choose an option for your card!": "Option 2",
+  //   "Would you like to add roses and a chocolate gift package for $5?": "No"
+  // };
   
   // Writing to database
-  await insertDocument(collection, document);
+  // await insertDocument(collection, document);
 
   await client.close();
 }
