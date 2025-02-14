@@ -85,10 +85,6 @@ const main = async () => {
     await sendEmail(transporter, doc, receiverTemplate, true);
     await sendEmail(transporter, doc, senderTemplate, false);
   }
-
-  // console.log(documents[3]);
-  // await sendEmail(transporter, documents[3], receiverTemplate, true);
-  // await sendEmail(transporter, documents[3], senderTemplate, false);
 }
 
 main();
