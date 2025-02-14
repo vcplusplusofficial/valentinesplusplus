@@ -39,31 +39,31 @@ async function fetchAllDocuments() {
   }
 }
 
-
-
 async function sendEmail (transporter, document, template, receiver) {
+  // Receiver emails
   const userEmail = document['receiverEmail'];
   const userName = document['receiverName'];
   const redirectLink = document['_id'];
   const packageBoolean = document['giftPackage'] === "Yes";
+  const senderName = document['senderName'];
 
   // 1. Rendering template
   const htmlContent = 
     receiver ? 
       ejs.render(template, { recieverName: userName, redirectLink: redirectLink, packageBoolean: packageBoolean }) : // reciver
-      ejs.render(template, { recieverName: userName, redirectLink: redirectLink }) // sender 
+      ejs.render(template, { senderName: senderName, redirectLink: redirectLink, packageBoolean: packageBoolean }) // sender 
   ;
 
   // 3. Send Email with Rendered HTML
   const mailOptions = {
     from: 'VC++ <${process.env.EMAIL_USER}>',
     to: userEmail,
-    subject: "Happy Valentines Day! You have received a Valentines suprise!",
+    subject: receiver ? "[Valentine's++] A Heartfelt Surprise Awaits You! 🌟💌" : "[Valentine's++] Your Valentine's++ Surprise is On Its Way! 🌹💌",
     html: htmlContent, // Rendered HTML from EJS
   };
 
   const info = await transporter.sendMail(mailOptions);
-  console.log("Email sent: " + info.response);
+  console.log("Email sent: " + info.response, "_id:", redirectLink, "reciever:", receiver);
 }
 
 const main = async () => {
@@ -78,6 +78,8 @@ const main = async () => {
   });
 
   const receiverTemplate = fs.readFileSync("./templates/receiverTemplate.ejs", "utf-8");
+  const senderTemplate = fs.readFileSync("./templates/senderTemplate.ejs", "utf-8");
+
 
   // for (const doc of documents){
   //    console.log(doc);
@@ -85,6 +87,7 @@ const main = async () => {
 
   // console.log(documents[3]);
   await sendEmail(transporter, documents[3], receiverTemplate, true);
+  await sendEmail(transporter, documents[3], senderTemplate, false);
 
 }
 
