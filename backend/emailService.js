@@ -41,11 +41,12 @@ async function fetchAllDocuments() {
 
 async function sendEmail (transporter, document, template, receiver) {
   // Receiver emails
-  const userEmail = document['receiverEmail'];
+  const receiverEmail = document['receiverEmail'];
   const userName = document['receiverName'];
   const redirectLink = document['_id'];
   const packageBoolean = document['giftPackage'] === "Yes";
   const senderName = document['senderName'];
+  const senderEmail = document['Email Address'];
 
   // 1. Rendering template
   const htmlContent = 
@@ -57,7 +58,7 @@ async function sendEmail (transporter, document, template, receiver) {
   // 3. Send Email with Rendered HTML
   const mailOptions = {
     from: 'VC++ <${process.env.EMAIL_USER}>',
-    to: userEmail,
+    to: receiver ? receiverEmail : senderEmail,
     subject: receiver ? "[Valentine's++] A Heartfelt Surprise Awaits You! 🌟💌" : "[Valentine's++] Your Valentine's++ Surprise is On Its Way! 🌹💌",
     html: htmlContent, // Rendered HTML from EJS
   };
