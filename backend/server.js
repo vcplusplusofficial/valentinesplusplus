@@ -24,6 +24,7 @@ async function connectToDatabase() {
   try {
     await client.connect();
     console.log("Connected to MongoDB!");
+    // TODO: make sure to update sample collection
     return client.db("sampleDatabase").collection("sampleCollection");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);

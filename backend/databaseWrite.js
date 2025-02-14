@@ -34,6 +34,13 @@ async function insertDocument(collection, document) {
   } 
 }
 
+
+/**
+ * Maps column names from forms to the ones required in the database.
+ *
+ * @param {*} document 
+ * @returns {{}} 
+ */
 function mapColumnsNames(document){
   var res = {};
 
@@ -76,7 +83,7 @@ const main = async () => {
   const results = await new Promise((resolve, reject) => {
     const data = [];
 
-    fs.createReadStream("./data/form_test.csv")
+    fs.createReadStream("./data/form_test.csv") // TODO: make sure to update with full form responses
       .pipe(csv())
       .on("data", (row) => data.push(row))
       .on("end", () => resolve(data))

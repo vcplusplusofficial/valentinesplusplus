@@ -20,7 +20,7 @@ async function connectToDatabase() {
   try {
     await client.connect();
     console.log("Connected to MongoDB!");
-    return client.db("sampleDatabase").collection("testDatabaseWrite");
+    return client.db("sampleDatabase").collection("testDatabaseWrite"); // TODO: make sure this is correct
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
     throw error;
@@ -79,7 +79,6 @@ const main = async () => {
 
   const receiverTemplate = fs.readFileSync("./templates/receiverTemplate.ejs", "utf-8");
   const senderTemplate = fs.readFileSync("./templates/senderTemplate.ejs", "utf-8");
-
 
   for (const doc of documents){
     await sendEmail(transporter, doc, receiverTemplate, true);
