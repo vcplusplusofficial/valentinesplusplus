@@ -118,17 +118,25 @@ const DatabaseComponent = () => {
       {error ? <p style={{ color: "red" }}>{error}</p> : null}
 
       <ul>
-        {documents.map((doc) => (
-          <li key={doc._id}>
-            {Object.entries(doc).map(([key, value]) => (
-              <span key={key}>
-                <strong>{key}:</strong>{" "}
-                {Array.isArray(value) ? value.join(", ") : value.toString()}
-                {" // "}
-              </span>
-            ))}
-          </li>
-        ))}
+      {documents.map((doc) => (
+        <li key={doc._id}>
+          {Object.entries(doc).map(([key, value]) => (
+            <span key={key}>
+              <strong>{key}:</strong>{" "}
+              {key === "_id" ? (
+                <a href={`/${value}`} target="_blank" rel="noopener noreferrer">
+                  {value}
+                </a>
+              ) : Array.isArray(value) ? (
+                value.join(", ")
+              ) : (
+                value.toString()
+              )}
+              {" // "}
+            </span>
+          ))}
+        </li>
+      ))}
       </ul>
     </div>
   );
