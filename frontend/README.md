@@ -1,3 +1,13 @@
+# Description of how files work
+
+./cards/* contains the different cards and their associated styling. If creating new cards should use a similar format. 
+
+DatabaseComponent.ts should be used primarily for testing purposes and testing that the data routing is correct and frontend is working as intended.
+
+APIService.ts are the specific apis used to call the backend.
+
+DynamicRouteHander.ts is the component that routes any link other than the home ("/") to dynamically search it up in the database and then render the associated information. 
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
